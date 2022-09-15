@@ -51,6 +51,9 @@ const server = http.createServer((req, res) => {
   var url_parts = url.parse(req.url, true);
   var url_pathname = url_parts.pathname.split("/");
   var url_filename = url_pathname[url_pathname.length - 1];
+  if (url_filename  === null || url_filename.trim() === ""){
+    url_filename = "SOGPUCI-----.svg";
+  }
   var url_filenametype = url_filename.split(".");
   if (url_filenametype[1].toUpperCase() == "SVG") {
     res.statusCode = 200;
